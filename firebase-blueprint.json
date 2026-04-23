@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "Feedback": {
+      "title": "Feedback",
+      "description": "User feedback and rating for the magazine or specific articles.",
+      "type": "object",
+      "properties": {
+        "rating": {
+          "type": "integer",
+          "description": "Rating score from 1 to 5."
+        },
+        "feedback": {
+          "type": "string",
+          "description": "The user's text comment or suggestion."
+        },
+        "userName": {
+          "type": "string",
+          "description": "The name of the user providing the feedback."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp of when the feedback was submitted."
+        },
+        "articleId": {
+          "type": "string",
+          "description": "ID of the article if the feedback is article-specific."
+        }
+      },
+      "required": ["rating", "feedback", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/feedbacks/{feedbackId}": {
+      "schema": "Feedback",
+      "description": "Collection of all user feedbacks."
+    }
+  }
+}
